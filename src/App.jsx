@@ -5,7 +5,7 @@ const App = () => {
  
   return (
     <div>
-      <div>Krishna fffffffffffffffffffffffffffffffff</div>
+      <div></div>
      <MyRoutes />
     </div>
   );
