@@ -1,0 +1,103 @@
+mongodb cheat sheet
+
+1.show dbs
+2.insert a document if it's not found - upsert
+will replace the current value of a field with a new, specified value? - $set
+
+Comparison
+The following operators can be used in queries to compare values:
+
+$eq: Values are equal
+$ne: Values are not equal
+$gt: Value is greater than another value
+$gte: Value is greater than or equal to another value
+$lt: Value is less than another value
+$lte: Value is less than or equal to another value
+$in: Value is matched within an array
+
+Logical
+The following operators can logically compare multiple queries.
+
+$and: Returns documents where both queries match
+$or: Returns documents where either query matches
+$nor: Returns documents where both queries fail to match
+$not: Returns documents where the query does not match
+
+Evaluation
+The following operators assist in evaluating documents.
+
+$regex: Allows the use of regular expressions when evaluating field values
+$text: Performs a text search
+$where: Uses a JavaScript expression to match documents
+
+Fields
+The following operators can be used to update fields:
+
+$currentDate: Sets the field value to the current date
+$inc: Increments the field value
+$rename: Renames the field
+$set: Sets the value of a field
+$unset: Removes the field from the document
+Array
+The following operators assist with updating arrays.
+
+$addToSet: Adds distinct elements to an array
+$pop: Removes the first or last element of an array
+$pull: Removes all elements from an array that match the query
+$push: Adds an element to an array
+
+db.listingsAndReviews.aggregate(
+    [
+{
+    $addFields: {
+      avgGrade: { $avg: "$grades.score" }
+    }
+  },
+{ 
+    $sort: { "title": -1 } 
+  },
+{ $match : { property_type : "House" } },
+{ $group : { _id : "$property_type" } },
+   {
+    $project: {
+      "name": 1,    }
+  },
+{ $limit: 1 } ]
+)
+
+counts the total amount of documents passed from the previous stage.
+
+db.restaurants.aggregate([
+  {
+    $match: { "cuisine": "Chinese" }
+  },
+  {
+    $count: "totalChinese"
+  }
+])
+
+Aggregation $lookup
+This aggregation stage performs a left outer join to a collection in the same database.
+
+There are four required fields:
+
+from: The collection to use for lookup in the same database
+localField: The field in the primary collection that can be used as a unique identifier in the from collection.
+foreignField: The field in the from collection that can be used as a unique identifier in the primary collection.
+as: The name of the new field that will contain the matching documents from the from collection.
+db.comments.aggregate([
+  {
+    $lookup: {
+      from: "movies",
+      localField: "movie_id",
+      foreignField: "_id",
+      as: "movie_details",
+    },
+  },
+  {
+    $limit: 1
+  }
+])
+
+The MongoDB Shell (mongosh) is not installed with MongoDB Server. You need to 
+follow the mongosh installation instructions to download and install mongosh separatel (mongod depricated)

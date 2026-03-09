@@ -1,0 +1,390 @@
+
+implement portal -
+implement react suspense -
+implement routes/ nested routes -
+implement useTransition -
+implement forwardRef -
+implement HOC - adds a border to any component -
+implement useReducer -
+implement useCallback -
+implement react boundries
+implement custom iterator and genearators
+practice recursion
+implement clouser - counter
+implement - Object.groupBy(object, callback)
+implement promise
+implement callback
+implement table
+implement nav - with float and felx - both vertical and horizontal
+implement - https://www.w3schools.com/css/css_dropdowns.asp
+implement tooltip arrao - https://www.w3schools.com/css/css_tooltip_arrows.asp
+implement pagination - react + css
+implement flex 
+implement How do you find the unique elements in an array? swith set and filter
+implement api calls await fetch( and with axios
+implement stack, queue, linkedlist in javascript
+implement Debounce search input
+implement Dark/light theme toggle
+
+
+import { createPortal } from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { Suspense } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+const [isPending, startTransition] = useTransition();
+import { forwardRef, useRef } from 'react';
+
+Promise.allSettled(iterable):
+
+weakMap - in deep
+how to iterante map and set,weakMap
+Map.groupBy(fruits, myCallback);
+Object.groupBy() vs Map.groupBy()
+
+
+const d = dat.getDate();
+const m = dat.getMonth() + 1;
+const y = dat.getFullYear();
+toLocaleTimeString
+
+Normal function asks: Who called me?
+Arrow function asks: Where was I created?
+
+<Routes>
+        <Route path="/" element={<Home />} />
+
+Composing Classes
+Global Classes - :global(.myheader) {
+The :global wrapper makes the class available for everyone.
+
+
+The useTransition hook helps you keep your React app responsive during heavy updates.
+It lets you mark some state updates as "non-urgent", allowing other, more urgent updates to happen first.
+
+A Higher Order Component (HOC) is like a wrapper that adds extra features to your React components. Think of it like putting a case on your phone - the case adds new features (like water protection) without changing the phone itself.
+
+What is Sass?
+Sass is a CSS pre-processor.
+Sass files are executed on the server and sends CSS to the browser.
+Sass adds extra features to CSS like variables, nesting, mixins, and more
+
+useEffect runs on every render.
+
+
+The useRef Hook allows you to persist values between renders.
+It can be used to store a mutable value that does not cause a re-render when updated.
+It can be used to access a DOM element directly.
+
+Proof useRef - allows you to persist values between renders.
+The useRef Hook can also be used to keep track of previous state values.
+
+{Array(5000).fill("slow").map((x, i) => (
+        <div key={i}>{x}</div>
+      ))}
+
+A closure is created when a function remembers the variables from its outer scope, even after the outer function has finished executing
+
+function add() {
+  let counter = 0;
+  function plus() {counter += 1;}
+  plus();   
+  return counter;
+}
+
+
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+
+Person.prototype.name = function() {
+  return this.firstName + " " + this.lastName;
+};
+
+
+Promise.all(iterable):
+Fulfills when all promises in the iterable are fulfilled; rejects immediately if any promise rejects.
+
+Promise.allSettled(iterable):
+Waits for all promises to settle (either fulfill or reject) and returns an array of their results.
+
+Promise.race(iterable):
+Settles (fulfills or rejects) as soon as any of the promises in the iterable settles.
+
+Promise.any(iterable):
+Fulfills as soon as any promise in the iterable fulfills; rejects if all promises reject.
+
+You can set the margin property to auto to horizontally center the element within its container.
+div {
+  width: 300px;
+  margin: auto;
+  border: 1px solid red;
+}
+
+Margin collapse is when two margins collapse into a single margin.
+
+Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
+Note: Margin collapse only happens with top and bottom margins! Not left and right margins!
+The box-sizing property defines how the width and height of an element are calculated: should they include padding and borders, or not.
+The box-sizing property can have the following values:
+
+content-box - This is default. The width and height properties includes only the content (border and padding are not included)
+border-box - The width and height properties includes content, padding and border
+
+
+The CSS Box Model
+The CSS box model is essentially a box that wraps around every HTML element.
+Every box consists of four parts: content, padding, borders and margins.
+
+The total width of an element should be calculated like this:
+
+Total element width = width + left padding + right padding + left border + right border
+
+The total height of an element should be calculated like this:
+
+Total element height = height + top padding + bottom padding + top border + bottom border
+
+An outline is a line drawn around an element, outside the element's border.
+
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+Static positioned elements are not affected by the top, bottom, left, and right properties.
+An element with position: static; is always positioned according to the normal flow of the page:
+
+An element with position: relative; is positioned relative to its normal position in the document flow.
+
+Setting the top, right, bottom, and left properties will cause the element to be adjusted away from its normal position
+
+An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used set the final location of the element.
+
+
+#An element with position: absolute; is positioned relative to the nearest positioned ancestor (with position other than static).
+
+However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.
+
+Note: Absolute positioned elements are removed from the normal document flow, and can overlap other elements.
+
+An element with position: sticky; toggles between a relative and fixed position, depending on the scroll position.
+
+A sticky element is positioned relative until a certain scroll position is reached - then it "sticks" in that place (like position:fixed).
+
+The z-index property specifies the stack order of positioned elements.
+
+The stack order defines which element should be placed in front or behind other elements.
+
+When elements are positioned, they can overlap other elements.
+
+The CSS overflow property controls what happens to content that is too big to fit into an area.
+
+It specifies whether to clip the content or to add scrollbars when the content of an element is too big.
+div {
+  width: 200px;
+  height: 65px;
+  background-color: coral;
+  overflow: visible;
+}
+
+There are several ways to horizontally align elements:
+
+#Horizontal Alignment
+There are several ways to horizontally align elements:
+
+margin: auto - Center block elements
+text-align: center - Center text inside elements
+float or position - Left/right alignment
+
+Center a div element using flexbox:
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#Vertical centering can be achieved using modern layout techniques:
+
+Flexbox - Use align-items: center
+Grid - Use place-items: center
+Position + Transform - For elements of unknown dimensions
+
+
+There are four different combinators in CSS:
+
+Descendant combinator (space)
+Child combinator (>)
+Next sibling combinator (+)
+Subsequent-sibling combinator (~)
+
+
+#Interactive Pseudo-classes
+Interactive pseudo-classes apply styles based on user interaction:
+
+:hover - When mouse is over an element
+:focus - When an element has focus
+:active - When an element is being activated
+:link - Unvisited links
+:visited - Visited links
+
+
+#Structural Pseudo-classes
+Structural pseudo-classes select elements based on their position in the document tree:
+
+:first-child - First child of a parent
+:last-child - Last child of a parent
+:nth-child(n) - The nth child of a parent
+:lang() - Elements with a specific language
+
+
+#Content pseudo-elements insert or style generated content:
+A CSS pseudo-element is a keyword that can be added to a selector, to style a specific part of an element.
+::before - Insert content before an element
+::after - Insert content after an element
+::marker - Style list item markers
+::selection - Style user-selected text
+::backdrop - Style dialog backdrop
+p::first-line {
+  color: red;
+  font-variant: small-caps;
+  font-size: 19px;
+}
+
+#list-style-type: none;
+
+CSS Specificity Hierarchy
+inline > id  1-0-0 > Classes, attribute selectors and pseudo-classes 0-1-0 > Elements and pseudo-elements 0-0-1 > *	
+
+
+#div1 {
+  border-radius: 70px / 30px;
+  background: #04AA6D;
+  width: 200px;
+  height: 150px;
+}
+
+#The resize property specifies if (and how) an element can be resized by a user.
+
+This property can have one of the following values:
+
+horizontal - user can resize the element horizontally (the width)
+vertical - user can resize the element vertically (the height)
+both - user can resize the element both vertically and horizontally
+none - user cannot resize the element
+
+#outline-offset property to add space between the border and the outline:
+div.ex1 {
+  margin: 20px;
+  border: 1px solid black;
+  outline: 4px solid red;
+  outline-offset: 15px;
+}
+
+#The var() function is used to insert the value of a declared CSS variable.
+:root {
+  --primary-bg-color: #1e90ff;
+  --primary-color: #ffffff;
+}
+
+body {
+  background-color: var(--primary-bg-color);
+}
+
+.container .note {
+  --note-border-color: red; /* new local variable */
+  border: 1px solid var(--note-border-color);
+  padding: 10px;
+}
+
+#CSS Box Sizing
+The CSS box-sizing property defines how to calculate the width and height of an element: should the calculation include padding and borders, or not.
+
+By default, the width and height of an element is calculated like this:
+
+width + padding + border = actual width of an element
+height + padding + border = actual height of an element
+
+.div1 {
+  width: 300px;
+  height: 100px;
+  border: 1px solid blue;
+  box-sizing: border-box;
+}
+
+.div2 {
+  width: 300px;
+  height: 100px;
+  padding: 50px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column {
+    flex: 50%;
+  }
+}
+
+/* Make a one column-layout instead of three-column layout */
+@media (max-width: 600px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+useReducer(reducer, initialState, init)
+What is the third parameter of useReducer?
+
+In React, the third parameter of useReducer is called the lazy initializer function.
+
+✅ What does it do?
+
+It is used to compute the initial state lazily.
+React calls this function only once during the initial render, not on every render.
+
+✅ Why is it useful?
+
+Improves performance
+
+Avoids expensive recalculations
+
+Helps initialize state from props or localStorage
+
+Useful for complex initial state logic
+
+
+#When To Use useCallback?
+
+Use it when:
+
+✅ Passing function to memoized child (React.memo)
+✅ Function is dependency of useEffect
+✅ Prevent unnecessary re-renders
+❌ Not needed for small apps
+
+#When NOT to Use useCallback
+
+When You Are NOT Passing Function to Memoized Child/When Not Using React.memo
+When Function Is Very Small / Cheap
+When Component Rarely Re-renders
+When Dependencies Keep Changing - const handleClick = useCallback(() => {}, [value]);
