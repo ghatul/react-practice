@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
 
-/*
-Create a reusable useDebounce hook that delays updating a value until a specified time has passed.
-Explain where you would use it (e.g., search input optimization).
-*/
-
 export function useDebounce(value, delay) {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
