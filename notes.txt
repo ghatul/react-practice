@@ -1,5 +1,5 @@
 
-implement portal -
+implement portal and Modal popup component without portal
 implement react suspense -
 implement routes/ nested routes -
 implement useTransition -
@@ -20,12 +20,13 @@ implement - https://www.w3schools.com/css/css_dropdowns.asp
 implement tooltip arrao - https://www.w3schools.com/css/css_tooltip_arrows.asp
 implement pagination - react + css
 implement flex 
-implement How do you find the unique elements in an array? swith set and filter
+How do you find the unique elements in an array? with set and filter
 implement api calls await fetch( and with axios
 implement stack, queue, linkedlist in javascript
-implement Debounce search input
-implement Dark/light theme toggle
 
+Memory game (like your project)
+Dark/light theme toggle
+Role-based authentication UI
 
 import { createPortal } from 'react-dom';
 import { createRoot } from 'react-dom/client';
@@ -34,21 +35,44 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 const [isPending, startTransition] = useTransition();
 import { forwardRef, useRef } from 'react';
 
-Promise.allSettled(iterable):
 
-weakMap - in deep
-how to iterante map and set,weakMap
-Map.groupBy(fruits, myCallback);
-Object.groupBy() vs Map.groupBy()
+const reducerFun = (state, action) => {
+  switch (action.type) {
+    case 'name':
+      return { ...state, name: action.value };
 
+
+ const [formState, dispatch] = useReducer(reducerFunction, initialState, initializer);
+
+
+
+import React, { Suspense, lazy } from 'react';
+const MyLazyComponent = lazy(() => import('./MyLazy'));
 
 const d = dat.getDate();
 const m = dat.getMonth() + 1;
 const y = dat.getFullYear();
 toLocaleTimeString
 
+new Date().getTIme();
+
 Normal function asks: Who called me?
 Arrow function asks: Where was I created?
+
+Promise.allSettled(iterable):
+
+import { createPortal } from 'react-dom';
+
+weakMap - in deep
+how to iterante map and set,weakMap
+Map.groupBy(fruits, myCallback);
+Object.groupBy() vs Map.groupBy()
+
+if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        setPage(pageVal);
+      }
+
+Math.floor(Math.random() * 10)
 
 <Routes>
         <Route path="/" element={<Home />} />
@@ -388,3 +412,10 @@ When You Are NOT Passing Function to Memoized Child/When Not Using React.memo
 When Function Is Very Small / Cheap
 When Component Rarely Re-renders
 When Dependencies Keep Changing - const handleClick = useCallback(() => {}, [value]);
+
+
+Method 	Behavior	Use Case
+Promise.all()	Rejects if any promise fails.	When all tasks are required for success.
+Promise.allSettled()	Waits for all to finish, whether they succeed or fail.	When you need the results of every task regardless of outcome.
+Promise.any()	Resolves as soon as any one promise fulfills.	When you only need the first successful result.
+Promise.race()	Settles as soon as the first promise settles (resolve or reject).	When you want the fastest response, even if it's an error.
