@@ -1,2 +1,37 @@
-10 array questions
-callback example
+
+1. Data Types & typeof JavaScript data types
+2. var/let/const + Scope
+3. Type Coercion & == vs ===
+4. Functions - declaration, expression arrow
+5. Arrays & common methods
+6. Objects & destructuring
+7. Operators - ??, ?., spread, rest
+8. Closures & Lexical Scope
+9. The this keyword (all 4 rules)
+10. call / apply / bind
+11. Prototype Chain & Inheritance
+12. ES6 Classes
+13. Event Loop: how async works under the hood
+14. Promises: states, chaining, .all/.race/.any
+15. async / await + error handling
+16. ES Modules import/export
+17. Execution Context & Call Stack
+18. Hoisting in depth
+19. Currying & Partial Application
+20. Memoization
+21. Debounce & Throttle
+22. Iterators & Generators
+23. Proxy & Reflect
+24. WeakMap / WeakSet / WeakRef
+25. Error Handling patterns
+26. Design Patterns in JS
+27. Writing Polyfills from scratch
+28. How do you create private varibles in JS without classes?
+29. for loop var vs let i with setTimeout(() => log(i),0)
+30. callback example
+40. Why HOC?
+41. SQL View
+42. Typescript methods
+43. Security attacks
+44. Design patterns
+45. OOPS concepts

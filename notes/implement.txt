@@ -1,11 +1,6 @@
-Why HOC?
-SQL View
-Typescript methods
-JavaScript data types
-Implement table
-Design patterns
-OOPS concepts
-practice 10 array questions
+
+practice 100 array questions
+Implement html table in react
 implement class inheritance
 prototype inheritance
 implement useMemo
