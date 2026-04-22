@@ -1,32 +1,5 @@
 
-implement portal and Modal popup component without portal
-implement react suspense -
-implement routes/ nested routes -
-implement useTransition -
-implement forwardRef -
-implement HOC - adds a border to any component -
-implement useReducer -
-implement useCallback -
-implement react boundries
-implement custom iterator and genearators
-practice recursion
-implement clouser - counter
-implement - Object.groupBy(object, callback)
-implement promise
-implement callback
-implement table
-implement nav - with float and felx - both vertical and horizontal
-implement - https://www.w3schools.com/css/css_dropdowns.asp
-implement tooltip arrao - https://www.w3schools.com/css/css_tooltip_arrows.asp
-implement pagination - react + css
-implement flex 
-How do you find the unique elements in an array? with set and filter
-implement api calls await fetch( and with axios
-implement stack, queue, linkedlist in javascript
 
-Memory game (like your project)
-Dark/light theme toggle
-Role-based authentication UI
 
 import { createPortal } from 'react-dom';
 import { createRoot } from 'react-dom/client';

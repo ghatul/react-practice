@@ -1,0 +1,569 @@
+JavaScript is one of the 3 languages all web developers must learn:
+HTML to define the content of web pages
+CSS to specify the layout of web pages
+JavaScript to program the behavior of web pages
+
+External JavaScript	
+<script src="myScript.js"></script>
+
+Function declarations can be called before they are defined.
+
+Function expressions can not be called before they are defined.
+
+Function declarations are "hoisted" to the top of their scope. This means you can call a function before it is defined in the code:
+Function expressions are not hoisted in the same way as function declarations.
+
+Object Iterations
+Object.entries(object)
+Object.keys(object)
+Object.values(object)
+Object.groupBy(object, callback)
+
+Object Expression
+const myFunction = function() {}
+
+object literal 
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  age      : 50,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+->John Doe
+
+let result = ("firstName" in person);
+
+Object constructor:
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+  this.fullName = function() {
+    return this.firstName + " " + this.lastName;
+  };
+}
+
+Adding a Method to an Object - possible
+myMother.changeName = function (name) {
+  this.lastName = name;
+}
+
+Adding a Method to a Constructor - not possible directly
+You cannot add a new method to an object constructor function
+
+Person.changeName = function (name) { // throw error
+  this.lastName = name;
+}
+
+myMother.changeName("Doe");
+
+Adding a new method to a constructor must be done to the constructor function prototype:
+Person.prototype.changeName = function (name) {
+  this.lastName = name;
+}
+
+myMother.changeName("Doe");
+
+
+Scope = Visibility
+Scope determines the accessibility (visibility) of variables.
+
+JavaScript variables have 3 types of scope:
+
+Global scope
+Function scope
+Block scope
+
+Each JavaScript function have their own scope.
+
+Variables defined inside a function are not accessible (visible) from outside the function.
+
+Variables declared with var, let and const are quite similar when declared inside a function.
+
+They all have Function Scope:
+
+
+The let and const Keywords
+Variables defined with let and const are hoisted to the top of the block, but not initialized.
+
+Meaning: The block of code is aware of the variable, but it cannot be used until it has been declared.
+
+Using a let variable before it is declared will result in a ReferenceError.
+
+The variable is in a "temporal dead zone" from the start of the block until it is declared:
+JavaScript only hoists declarations, not initializations.
+
+
+Comparing string properties is a little more complex:
+cars.sort(function(a, b){
+  let x = a.type.toLowerCase();
+  let y = b.type.toLowerCase();
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+});
+
+// Home Made Iterable
+function myNumbers() {
+  let n = 0;
+  return {
+    next: function() {
+      n += 10;
+      return {value:n, done:false};
+    }
+  };
+}
+
+// Run the Iterable
+const n = myNumbers();
+n.next(); // Returns 10
+n.next(); // Returns 20
+n.next(); // Returns 30
+
+
+function* myStream() {
+// return {value:1, done:false}
+yield 1;
+
+// return {value:2, done:false}
+yield 2;
+
+// return {value:3, done:false}
+yeald 3;
+}
+
+// Create a Generator
+let myGenerator = myStream();
+
+// Iterate over the Generator
+for (let value of myGenerator) { // c
+
+
+
+Function definition is a general term for defining a function.
+
+Function declaration is one specific way to define a function.
+
+Examples of function definitions include:
+
+Function declarations
+Function expressions
+Arrow functions
+
+// Function Declaration
+function myFunction(x, y) {
+  return x * y;
+}
+
+// Function Expression (Named)
+const myFunction = function name(x, y) {
+  return x * y;
+};
+
+// Function Expression (Anonymous)
+const myFunction = function (x, y) {
+  return x * y;
+};
+
+// Arrow Function
+const myFunction = (x, y) => x * y;
+
+// Function Constructor
+const myFunction = new Function("x", "y", "return x * y");
+
+// Object Method
+const obj = {
+  myFunction(x, y) {
+    return x * y;
+  },
+};
+
+
+A function expression stores a function inside a variable.
+
+The function can be anonymous (without a name).
+
+
+
+Hoisting
+Function declarations are hoisted to the top of their scope.
+
+Function expressions are not hoisted in the same way.
+
+Function declarations can be called before they are defined.
+
+Function expressions can not be called before they are defined.
+
+Function declarations can be called before they are defined:
+
+const sum = add(2, 3); // Will work
+
+function add(a, b) {return a + b;}
+Function expressions can not be called before they are defined:
+
+const sum = add(2, 3); // ⛔ Will generate error
+
+const add = function (a, b) {return a + b;};
+
+
+What is a Callback Function?
+A callback function is a function passed as an argument into another function.
+
+A callback function is intended to be executed later.
+
+Asynchronous Callbacks
+Asynchronous callbacks are executed at a later time, allowing the main program to continue running without waiting.
+
+This is essential for preventing the application from freezing during long-running tasks like network requests.
+
+Synchronous Callbacks
+Synchronous Callbacks are executed immediately within the outer function, blocking further operations until completion.
+
+Array methods like map(), filter(), and forEach() use synchronous callbacks.
+document.getElementById("myButton").addEventListener("click", displayDate);
+
+Example (Callbacks)
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+
+myCalculator(5, 5, myDisplayer);
+The value of this is decided when the function is called.
+
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+person.fullName();
+
+globalThis === window; // true in browsers
+globalThis === global; // true in Node.js
+
+this in Arrow Functions
+Arrow functions do not have their own this. They inherit this from the surrounding scope.
+
+In regular functions the this keyword represents the object that called the function, which could be the window, the document, a button or whatever.
+
+With arrow functions the this keyword always represents the object that defined the arrow function.
+
+What is this?
+In JavaScript, the this keyword refers to an object.
+
+The this keyword refers to different objects depending on how it is used:
+
+Alone, this refers to the global object.
+In a function, this refers to the global object.
+In a function, in strict mode, this is undefined.
+In an object method, this refers to the object.
+In an event, this refers to the element that received the event.
+
+
+// Arrow Function:
+hello = () => {
+  document.getElementById("demo").innerHTML += this;
+}
+
+// The window object calls the function:
+window.addEventListener("load", hello);
+
+// A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);
+
+
+Arrow Functions in Methods
+With arrow functions there are no binding of this.
+They are not well suited for defining object methods.
+
+Example
+const person = {
+  firstName: "John",
+  sayHello: () => {
+    return this.firstName;
+  }
+};
+
+person.sayHello();
+
+
+The JavaScript call() Method
+The call() method can be used to call a function with a specific this.
+
+The call() method lets an object use a method belonging to another object.
+
+Syntax
+functionName.call(this, arg1, arg2, ...);
+
+
+const person1 = { name: "John" };
+const person2 = { name: "Paul" };
+const person3 = { name: "Ringo" };
+
+function greet(greeting) {
+  return greeting + " " + this.name;
+}
+
+greet.call(person3, "Hello");
+
+
+
+const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+
+// This will return "John Doe":
+person.fullName.call(person1);
+
+
+const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+
+person.fullName.call(person1, "Oslo", "Norway");
+
+
+
+Method Borrowing
+Like with call() and apply(), the bind() method can borrow a method from another object.
+
+Unlike call() and apply(), the bind() method does not run the function immediately.
+
+Instead, it returns a new function that can be called later.
+
+The new function remembers the this value you chose.
+
+
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+
+setTimeout(person.display, 3000);
+
+
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+
+let display = person.display.bind(person);
+setTimeout(display, 3000);
+
+
+When is IIFE Used?
+To create a private scope
+To run setup code once
+In older JavaScript code
+Avoid Polluting the Global Scope
+Everything inside an IIFE is private to that function.
+
+Variables inside an IIFE cannot be accessed from outside.
+
+
+JavaScript variables can belong to:
+
+The local scope
+The global scope
+Global variables can be made local (private) with closures.
+
+Closures make it possible for a function to have "private" variables.
+
+A closure is created when a function remembers the variables from its outer scope, even after the outer function has finished executing.
+
+Global Variables
+A global variable is a "public" variable defined outside a function.
+
+A function can access all variables in the global scope:
+
+function myCounter() {
+  let counter = 0;
+  return function() {
+    counter++;
+    return counter;
+  };
+}
+const add = myCounter();
+add();
+add();
+add();
+
+
+const fruits = [
+["apples", 300],
+["pears", 900],
+["bananas", 500]
+];
+
+const myObj = Object.fromEntries(fruits);
+
+// Create an Array
+const fruits = [
+  {name:"apples", quantity:300},
+  {name:"bananas", quantity:500},
+  {name:"oranges", quantity:200},
+  {name:"kiwi", quantity:150}
+];
+
+// Callback function to Group Elements
+function myCallback({ quantity }) {
+  return quantity > 200 ? "ok" : "low";
+}
+
+// Group by Quantity
+const result = Object.groupBy(fruits, myCallback);
+
+// Create an object:
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  language: "en",
+  get lang() {
+    return this.language;
+  }
+
+set lang(lang) {
+    this.language = lang;
+  }
+};
+
+JavaScript Object Prototypes
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+
+Person.prototype.name = function() {
+  return this.firstName + " " + this.lastName;
+};
+
+
+function getData(callback) {
+  let ok = false;
+
+  if (ok) {
+    callback(null, "Data");
+  } else {
+    callback("Something failed", null);
+  }
+}
+
+getData(function(error, data) {
+  if (error) {
+    myDisplayer(error);
+    return;
+  }
+  myDisplayer(data);
+});
+
+
+Jest: The most popular and recommended test runner for React applications. Developed by Meta, it offers a "zero-config" setup, built-in mocking capabilities, and snapshot testing to detect UI regressions.
+
+import {describe, expect, test} from '@jest/globals';
+import {sum} from './sum';
+
+describe('sum module', () => {
+  test('adds 1 + 2 to equal 3', () => {
+    expect(sum(1, 2)).toBe(3);
+  });
+});
+
+test('the data is peanut butter', async () => {
+  const data = await fetchData();
+  expect(data).toBe('peanut butter');
+});
+
+test('the fetch fails with an error', async () => {
+  expect.assertions(1);
+  try {
+    await fetchData();
+  } catch (error) {
+    expect(error).toMatch('error');
+  }
+});
+
+What is the Event Loop?
+The event loop is what makes Node.js non-blocking and efficient.
+
+It handles asynchronous operations by delegating tasks to the system and processing their results through callbacks, allowing Node.js to manage thousands of concurrent connections with a single thread.
+
+Node.js follows these steps to handle operations:
+
+Execute the main script (synchronous code)
+Process any microtasks (Promises, process.nextTick)
+Execute timers (setTimeout, setInterval)
+Run I/O callbacks (file system, network operations)
+Process setImmediate callbacks
+Handle close events (like socket.on('close'))
+
+
+const list = [1, [23, 5], 44, [33, [55, 66]]];
+
+function flatArray(arr) {
+  let result = [];
+  for(let item of arr) {
+  if(Array.isArray(item)) {
+    result = result.concat(flatArray(item));
+  } else {
+  result.push(item);
+  }
+  }
+  return result;
+}
+const neList = flatArray(list);
+console.log(neList);
+
+
+const list = [1, 88,99];
+
+const reverseArray = (arr) => {
+  let left = 0;
+  let right = arr.length -1
+  while(left < right) {
+    [arr[left], arr[right]] =  [arr[right], arr[left]]
+    left++;
+    right--
+  }
+  
+return arr;
+}
+reverseArray(list)
