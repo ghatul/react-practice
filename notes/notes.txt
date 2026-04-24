@@ -1,5 +1,5 @@
 
-
+React.memo is a higher-order component that memoizes a component and prevents re-rendering unless its props change (shallow comparison).
 
 import { createPortal } from 'react-dom';
 import { createRoot } from 'react-dom/client';

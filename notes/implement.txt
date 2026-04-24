@@ -1,9 +1,8 @@
 
-
-Implement html table in react
-prototype inheritance
-implement useMemo
-implement memo
+How many times component get rendered -
+Implement html table in react -
+implement useMemo -
+implement memo -
 implement portal and Modal popup component without portal
 implement react suspense -
 implement routes/ nested routes -
@@ -18,12 +17,11 @@ implement clouser - counter
 implement - Object.groupBy(object, callback)
 implement promise
 implement callback
-implement table
+implement html table -
 implement nav - with float and felx - both vertical and horizontal
 implement - https://www.w3schools.com/css/css_dropdowns.asp
 implement tooltip arrao - https://www.w3schools.com/css/css_tooltip_arrows.asp
-implement pagination - react + css
-implement flex 
+implement pagination - react + css -
 How do you find the unique elements in an array? with set and filter
 implement api calls await fetch( and with axios
 implement stack, queue, linkedlist in javascript
@@ -32,3 +30,4 @@ Role-based authentication UI
 practice recursion
 practice 100 array questions
 implement class inheritance
+prototype inheritance
