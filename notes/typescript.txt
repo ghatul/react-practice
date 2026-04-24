@@ -1,0 +1,226 @@
+What is TypeScript?
+TypeScript is a syntactic superset of JavaScript which adds static typing.
+This basically means that TypeScript adds syntax on top of JavaScript, allowing developers to add types.
+
+TypeScript being a Syntactic Superset means it shares the same base syntax as JavaScript, but adds something to it.
+
+TypeScript uses compile time type checking.
+
+
+TypeScript is transpiled into JavaScript using a compiler.
+TypeScript being converted into JavaScript means it runs anywhere that JavaScript runs!
+
+Configuring the compiler
+npx tsc --init
+
+JavaScript and TypeScript Primitives -
+Boolean, Number, String, BigInt , Symbol
+
+Explicit Typing: You explicitly declare the type of a variable
+Type Inference: TypeScript automatically determines the type based on the assigned value
+
+While type inference is convenient, being explicit with types can make your code more maintainable, especially in larger codebases or public APIs.
+
+One of TypeScript's main benefits is catching type-related errors during development.
+
+When TypeScript Can't Infer Types
+While TypeScript's type inference is powerful, there are cases where it can't determine the correct type.
+
+In these situations, TypeScript falls back to the any type, which disables type checking.
+
+// 1. JSON.parse returns 'any' because the structure isn't known at compile time
+const data = JSON.parse('{ "name": "Alice", "age": 30 }');
+
+Avoid any When Possible
+Using any disables TypeScript's type checking.
+
+Instead, consider these alternatives:
+
+Use type annotations
+Create interfaces for complex objects
+Use type guards for runtime type checking
+Enable noImplicitAny in your tsconfig.json
+
+#ypeScript Special Types -
+
+1.Type: any
+The any type is the most flexible type in TypeScript.
+
+It essentially tells the compiler to skip type checking for a particular variable.
+
+While this can be useful in certain situations, it should be used sparingly as it bypasses TypeScript's type safety features.
+
+When to use any:
+
+When migrating JavaScript code to TypeScript
+When working with dynamic content where the type is unknown
+When you need to opt out of type checking for a specific case
+
+
+2.Type: unknown
+The unknown type is a type-safe counterpart of any.
+It's the type-safe way to say "this could be anything, so you must perform some type of checking before you use it".
+
+function processValue(value: unknown) {
+  if (typeof value === 'string') {
+    // value is now treated as string
+    console.log(value.toUpperCase());
+  } else if (Array.isArray(value)) {
+    // value is now treated as any[]
+    console.log(value.length);
+  }
+}
+
+#Type: never
+The never type represents the type of values that never occur.
+
+It's used to indicate that something never happens or should never happen.
+
+The readonly keyword can prevent arrays from being changed.
+
+TypeScript can infer the type of an array if it has values.
+
+A tuple is a typed array with a pre-defined length and types for each index.
+
+Tuples are great because they allow each element in the array to be a known type of value.
+useState returns a tuple of the value and a setter function.
+
+const [firstName, setFirstName] = useState('Dylan') is a common example.
+
+Because of the structure we know our first value in our list will be a certain value type in this case a string and the second value a function
+
+TypeScript Object Types
+const car: { type: string, model: string, year: number } = {
+  type: "Toyota",
+  model: "Corolla",
+  year: 2009
+};
+
+optional property
+
+const car: { type: string, mileage?: number } = { // no error
+  type: "Toyota"
+};
+car.mileage = 2000;
+
+#Index Signatures-
+Index signatures can be used for objects without a defined list of properties.
+
+const nameAgeMap: { [index: string]: number } = {};
+nameAgeMap.Jack = 25; // no error
+nameAgeMap.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'number'.
+
+Index signatures like this one can also be expressed with utility types like Record<string, number>.
+
+#TypeScript Enums -
+
+An enum is a special "class" that represents a group of constants (unchangeable variables).
+Enums come in two flavors string and numeric.
+By default, enums will initialize the first value to 0 and add 1 to each additional value:
+enum CardinalDirections {
+  North = 'North',
+  East = "East",
+  South = "South",
+  West = "West"
+};
+
+#TypeScript Type Aliases and Interfaces -
+
+
+Aliases and Interfaces allows types to be easily shared between different variables/objects.
+
+Union and Intersection Types
+type Animal = { name: string };
+type Bear = Animal & { honey: boolean };
+const bear: Bear = { name: "Winnie", honey: true };
+
+type Status = "success" | "error";
+let response: Status = "success";
+
+Interfaces are similar to type aliases, except they only apply to object types.
+
+interface Rectangle {
+  height: number,
+  width: number
+}
+
+const rectangle: Rectangle = {
+  height: 20,
+  width: 10
+};
+
+Extending: Both can be extended, but interfaces support declaration merging.
+Unions/Intersections: Only type aliases support union and intersection types.
+Implements: Classes can implement either.
+Recommendation: Use interface for objects, type for everything else.
+Use interface for defining object shapes and public APIs.
+Use type for unions, intersections, and primitives.
+Favor composition over inheritance for types.
+Document your types and interfaces for clarity.
+
+Extending Interfaces
+Extending an interface means you are creating a new interface with the same properties as the original, plus something new.
+
+interface Rectangle {
+  height: number,
+  width: number
+}
+
+interface ColoredRectangle extends Rectangle {
+  color: string
+}
+
+const coloredRectangle: ColoredRectangle = {
+  height: 20,
+  width: 10,
+  color: "red"
+};
+
+#Union | (OR)
+function printStatusCode(code: string | number) {
+  console.log(`My status code is ${code}.`)
+}
+
+#TypeScript Functions-
+
+
+type Negate = (value: number) => number;
+
+Function types can be specified separately from functions with type aliases.
+// in this function, the parameter `value` automatically gets assigned the type `number` from the type `Negate`
+const negateFunction: Negate = (value) => value * -1;
+
+#TypeScript Casting -
+
+A straightforward way to cast a variable is using the as keyword, which will directly change the type of the given variable.
+let x: unknown = 'hello';
+console.log((x as string).length);
+
+#TypeScript Utility Types -
+Partial - Partial changes all the properties in an object to be optional.
+
+Required
+Required changes all the properties in an object to be required.
+
+Record
+Record is a shortcut to defining an object type with a specific key type and value type.
+
+Omit
+Omit removes keys from an object type.
+
+Pick
+Pick removes all but the specified keys from an object type.
+
+Exclude
+Exclude removes types from a union.
+type Primitive = string | number | boolean
+const value: Exclude<Primitive, string> = true; // a string cannot be used here since Exclude removed it from the type.
+
+ReturnType
+ReturnType extracts the return type of a function type.
+
+Parameters
+Parameters extracts the parameter types of a function type as an array.
+
+Readonly
+Readonly is used to create a new type where all properties are readonly, meaning they cannot be modified once assigned a value.

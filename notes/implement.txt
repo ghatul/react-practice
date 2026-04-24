@@ -1,7 +1,6 @@
 
-practice 100 array questions
+
 Implement html table in react
-implement class inheritance
 prototype inheritance
 implement useMemo
 implement memo
@@ -15,7 +14,6 @@ implement useReducer -
 implement useCallback -
 implement react boundries
 implement custom iterator and genearators
-practice recursion
 implement clouser - counter
 implement - Object.groupBy(object, callback)
 implement promise
@@ -29,6 +27,8 @@ implement flex
 How do you find the unique elements in an array? with set and filter
 implement api calls await fetch( and with axios
 implement stack, queue, linkedlist in javascript
-Memory game (like your project)
 Dark/light theme toggle
 Role-based authentication UI
+practice recursion
+practice 100 array questions
+implement class inheritance
