@@ -11,16 +11,11 @@ implement forwardRef -
 implement HOC - adds a border to any component -
 implement useReducer -
 implement useCallback -
-implement react boundries
-implement custom iterator and genearators
+implement react boundries -
 implement clouser - counter
-implement - Object.groupBy(object, callback)
 implement promise
 implement callback
 implement html table -
-implement nav - with float and felx - both vertical and horizontal
-implement - https://www.w3schools.com/css/css_dropdowns.asp
-implement tooltip arrao - https://www.w3schools.com/css/css_tooltip_arrows.asp
 implement pagination - react + css -
 How do you find the unique elements in an array? with set and filter
 implement api calls await fetch( and with axios
@@ -31,3 +26,8 @@ practice recursion
 practice 100 array questions
 implement class inheritance
 prototype inheritance
+implement custom iterator and genearators
+implement - Object.groupBy(object, callback)
+implement nav - with float and felx - both vertical and horizontal
+implement - https://www.w3schools.com/css/css_dropdowns.asp
+implement tooltip arrao - https://www.w3schools.com/css/css_tooltip_arrows.asp
