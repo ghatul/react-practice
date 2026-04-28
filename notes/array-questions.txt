@@ -1,0 +1,28 @@
+1. Find the maximum element in an array.
+2. Count the number of even and odd numbers in a list.
+3. Reverse a given string.
+4. Check if a number is prime.
+5. Print the Fibonacci sequence up to N terms.
+6. Find the second largest element in an array.
+7. Check if a string is a palindrome.
+8. Sort an array using bubble sort.
+9. Find the sum of digits of a number.
+10. Calculate the factorial of a number.
+11. Merge two sorted arrays into one.
+12. Count the frequency of elements in an array.
+13. Find the missing number in a range from 1 to N.
+14. Check if two strings are anagrams.
+15. Remove duplicate elements from an array.
+16. Find the largest sum subarray (Kadane's Algorithm).86
+17. Check if a number is an Armstrong number.
+18. Rotate an array to the left by K steps.
+19. Find the intersection of two arrays.
+20. Move all zeros to the end of an array.
+21. Implement binary search on a sorted array.
+22. Check if a number is a perfect square.
+23. Count vowels and consonants in a string.
+24. Find the GCD of two numbers.
+25. Convert a binary number to decimal.
+26. Find the first non-repeating character in a string.
+27. Implement a queue using two stacks.
+28. Check if brackets are balanced in an expression
