@@ -1,3 +1,5 @@
+extends vs implement
+
 1.	Scope in js ( Global, functional, block )
 2.	Scope chaining
 3.	Primitive , non-primitive in js

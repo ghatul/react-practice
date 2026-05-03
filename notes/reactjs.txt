@@ -1,0 +1,484 @@
+npm install -g create-vite
+
+npm create vite@latest my-react-app -- --template react
+
+React renders HTML to the web page via a container, and a function called createRoot().
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+      <App />
+    </StrictMode>
+  )  
+
+  Upgrading an existing React application to version 19 only requires two steps.
+  npm i react@latest react-dom@latest
+
+  // Before
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+  <h1>Hello React!</h1>,
+  document.getElementById('root')
+);
+
+// After
+import { createRoot } from 'react-dom/client';
+
+createRoot(document.getElementById('root')).render(
+  <h1>Hello React!</h1>
+);
+
+ES6 stands for ECMAScript 6.
+
+ECMAScript was created to standardize JavaScript, and ES6 is the 6th version of ECMAScript, it was published in 2015, and is also known as ECMAScript 2015.
+By calling the super() method in the constructor method, we call the parent's constructor method and get access to the parent's properties and methods.
+
+In short, with arrow functions there is no binding of this.
+In regular functions the this keyword represented the object that called the function, which could be the window, the document, a button or whatever.
+With arrow functions, the this keyword always represents the object that defined the arrow function.
+
+#With a regular function, this represents the object that called the function:
+class Header {
+  constructor() {
+    this.color = "Red";
+  }
+//Regular function:
+  changeColor = function() {
+    document.getElementById("demo").innerHTML += this;
+  }
+}
+const myheader = new Header();
+//The window object calls the function:
+window.addEventListener("load", myheader.changeColor);
+//A button object calls the function:
+document.getElementById("btn").addEventListener("click", myheader.changeColor);
+ 
+
+ #With an arrow function, this represents the Header object no matter who called the function:
+ class Header {
+  constructor() {
+    this.color = "Red";
+  }
+//Arrow function:
+  changeColor = () => {
+    document.getElementById("demo").innerHTML += this;
+  }
+}
+const myheader = new Header();
+//The window object calls the function:
+window.addEventListener("load", myheader.changeColor);
+//A button object calls the function:
+document.getElementById("btn").addEventListener("click", myheader.changeColor);
+
+
+#React ES6 Variables
+If you use var outside of a function, it belongs to the global scope.
+If you use var inside of a function, it belongs to that function.
+If you use var inside of a block, i.e. a for loop, the variable is still available outside of that block.
+
+
+let is the block scoped version of var, and is limited to the block (or expression) where it is defined.
+If you use let inside of a block, i.e. a for loop, the variable is only available inside of that loop.
+
+The keyword const is a bit misleading.
+It does not define a constant value. It defines a constant reference to a value.
+
+Spread Operator
+The JavaScript spread operator (...) copies all or part of an existing array or object into another array or object.
+
+
+Tagged Templates
+You can also use template strings with a function (called a tag) to modify the output.
+Note: Tagged templates are an advanced feature. You might not need them in most cases.
+function highlight(strings, fname) {
+  let x = fname.toUpperCase();
+  return strings[0] + x + strings[1];
+}
+let name = "John";
+let text = highlight`Hello ${name}, how are you?`;
+
+JSX stands for JavaScript XML.
+
+
+JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement()  and/or appendChild() methods.
+
+JSX converts HTML tags into react elements.
+Before React 16.8, Class components were the only way to track state and lifecycle on a React component. Function components were considered "state-less".
+With the addition of Hooks, Function components are now almost equivalent to Class components. The differences are so minor that you will probably never need to use a Class component in React.
+
+The three phases are: Mounting, Updating, and Unmounting.
+
+#Mounting
+Mounting means putting elements into the DOM.
+
+React has four built-in methods that gets called, in this order, when mounting a component:
+
+constructor()
+getDerivedStateFromProps()
+render()
+componentDidMount()
+
+The render() method is required and will always be called, the others are optional and will be called if you define them.
+
+
+The constructor() method is called before anything else, when the component is initiated, and it is the natural place to set up the initial state and other initial values.
+The constructor() method is called with the props, as arguments, and you should always start by calling the super(props) before anything else, this will initiate the parent's constructor method and allows the component to inherit methods from its parent (React.Component).
+
+This is the natural place to set the state object based on the initial props.
+The getDerivedStateFromProps() method is called right before rendering the element(s) in the DOM.
+
+static getDerivedStateFromProps(props, state) {
+    return {favoritecolor: props.favcol };
+  }
+
+  The render() method is required, and is the method that actually outputs the HTML to the DOM.
+  componentDidMount
+The componentDidMount() method is called after the component is rendered.
+
+This is where you run statements that requires that the component is already placed in the DOM.
+
+#Updating -
+
+A component is updated whenever there is a change in the component's state or props.
+
+React has five built-in methods that gets called, in this order, when a component is updated:
+
+getDerivedStateFromProps()
+shouldComponentUpdate()
+render()
+getSnapshotBeforeUpdate()
+componentDidUpdate()
+
+getDerivedStateFromProps
+Also at updates the getDerivedStateFromProps method is called. This is the first method that is called when a component gets updated.
+This is still the natural place to set the state object based on the initial props.
+
+shouldComponentUpdate
+In the shouldComponentUpdate() method you can return a Boolean value that specifies whether React should continue with the rendering or not.
+
+getSnapshotBeforeUpdate
+In the getSnapshotBeforeUpdate() method you have access to the props and state before the update, meaning that even after the update, you can check what the values were before the update.
+
+If the getSnapshotBeforeUpdate() method is present, you should also include the componentDidUpdate() method, otherwise you will get an error.
+
+getSnapshotBeforeUpdate(prevProps, prevState) {
+    document.getElementById("div1").innerHTML =
+    "Before the update, the favorite was " + prevState.favoritecolor;
+  }
+  componentDidUpdate() {
+    document.getElementById("div2").innerHTML =
+    "The updated favorite is " + this.state.favoritecolor;
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>Enter your name:
+        <input
+          type="text" 
+          value={name}
+          onChange={handleChange}
+        />
+      </label>
+      <input type="submit" />
+    </form>
+  )
+
+
+function MyForm() {
+  const [myCar, setMyCar] = useState("Volvo");
+
+  const handleChange = (event) => {
+    setMyCar(event.target.value)
+  }
+
+  return (
+    <form>
+      <select value={myCar} onChange={handleChange}>
+        <option value="Ford">Ford</option>
+        <option value="Volvo">Volvo</option>
+        <option value="Fiat">Fiat</option>
+      </select>
+    </form>
+  )
+}
+
+#React Portals -
+
+React Portals provide a way to render HTML outside the parent component's DOM hierarchy.
+This is particularly useful for components like modals, tooltips, and dialogs that need to break out of their container's layout.
+
+import { createPortal } from 'react-dom';
+
+function myChild() {
+  return createPortal(
+    <div>
+      Welcome
+    </div>,
+    document.body
+  );
+}
+
+Portals are particularly useful for:
+
+Modals and dialogs
+Tooltips
+Floating menus
+Notifications
+
+Any UI element that needs to "break out" of its container's layout, especially when the parent component has:
+
+overflow: hidden
+z-index conflicts
+Complex positioning requirements
+
+#React Suspense -
+Suspense is a React feature that lets your components display an alternative HTML while waiting for code or data to load.
+
+The most common use cases are:
+
+Data fetching with suspense-enabled frameworks
+Loading components dynamically with React.lazy()
+
+import { createRoot } from 'react-dom/client';
+import { Suspense, lazy } from 'react';
+
+const Cars = lazy(() => import('./Cars'));
+
+function App() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Cars />
+      </Suspense>
+    </div>
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  <App />
+);
+
+
+:global(.myheader) {
+  padding: 10px 20px;
+  font-size: 50px;
+  color: white;
+  background-color: dodgerblue;
+}
+
+The :global wrapper makes the class available for everyone.
+
+What are CSS Modules?
+import styles from './BlueHeader.module.css';
+
+function App() {
+  return (
+    <div>
+      <h1 className="myheader">
+        My Header
+      </h1>
+    </div>
+  );
+}
+
+
+#React Router -
+React Router is a library that provides routing capabilities for React applications.
+
+Routing means handling navigation between different views.
+
+React Router is the standard routing library for React applications. It enables you to:
+
+Create multiple pages in your single-page application
+Handle URL parameters and query strings
+Manage browser history and navigation
+Create nested routes and layouts
+Implement protected routes for authentication
+
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+ <BrowserRouter>
+      {/* Navigation */}
+      <nav>
+        <Link to="/">Home</Link> |{" "}
+        <Link to="/about">About</Link> |{" "}
+        <Link to="/contact">Contact</Link>
+      </nav>
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
+
+
+#React Transitions
+The useTransition hook helps you keep your React app responsive during heavy updates.
+
+It lets you mark some state updates as "non-urgent", allowing other, more urgent updates to happen first.
+Use transitions when you have:
+
+A slow operation that might freeze the UI
+Updates that aren't immediately critical
+Search results that take time to display
+
+#React forwardRef
+forwardRef lets your component pass a reference to one of its children. It's like giving a direct reference to a DOM element inside your component.
+
+Common uses for forwardRef:
+
+Focusing input elements
+Triggering animations
+Measuring DOM elements
+Integrating with third-party libraries
+
+Note: Only use forwardRef when you need direct access to a DOM element. For most cases, you can use props and state instead.
+
+#React Higher Order Components
+
+A Higher Order Component (HOC) is like a wrapper that adds extra features to your React components. Think of it like putting a case on your phone - 
+the case adds new features (like water protection) without changing the phone itself.
+
+Note: HOCs are functions that take a component and return an enhanced version of that component.
+The original component (Greeting) remains unchanged
+
+Note: Often, HOC's can be replaced with React Hooks, but HOC's are still useful for certain cross-cutting concerns like authentication or data fetching patterns.
+Sass files are executed on the server and sends CSS to the browser.
+
+Sass adds extra features to CSS like variables, nesting, mixins, and more.
+
+#React Hooks -
+
+Hooks allow functions to have access to state and other React features without using classes.
+
+They provide a more direct API to React concepts like props, state, context, refs, and lifecycle.
+
+Hooks are functions that let you "hook into" React state and lifecycle features from functional components.
+
+There are 3 rules for hooks:
+
+Hooks can only be called inside React function components.
+Hooks can only be called at the top level of a component.
+Hooks cannot be conditional
+
+The useEffect Hook allows you to perform side effects in your components.
+
+Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+
+useEffect runs on every render. That means that when the count changes, a render happens, which then triggers another effect.
+
+#React Context
+React Context is a way to manage state globally.
+
+It can be used together with the useState Hook to share state between deeply nested components more easily than with useState alone.
+
+import { useState, createContext, useContext } from "react";
+
+<UserContext.Provider value={user}>
+      <h1>{`Hello ${user}!`}</h1>
+      <Component2 />
+    </UserContext.Provider>
+const UserContext = createContext();
+const user = useContext(UserContext);
+
+#React useRef Hook -
+The useRef Hook allows you to persist values between renders.
+It can be used to store a mutable value that does not cause a re-render when updated.
+It can be used to access a DOM element directly.
+
+import { useState, useRef, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function App() {
+  const [inputValue, setInputValue] = useState("");
+  const count = useRef(0);
+
+  useEffect(() => {
+    count.current = count.current + 1;
+  });
+
+  return (
+    <>
+      <p>Type in the input field:</p>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h1>Render Count: {count.current}</h1>
+    </>
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  <App />
+);
+
+useRef() only returns one item. It returns an Object called current.
+When we initialize useRef we set the initial value: useRef(0).
+It's like doing this: const count = {current: 0}. We can access the count by using count.current.
+
+import { useRef, useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function App() {
+  const [inputValue, setInputValue] = useState("");
+  const previousInputValue = useRef("");
+
+  useEffect(() => {
+    previousInputValue.current = inputValue;
+  }, [inputValue]);
+
+  return (
+    <>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h2>Current Value: {inputValue}</h2>
+      <h2>Previous Value: {previousInputValue.current}</h2>
+    </>
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  <App />
+);
+
+#React useReducer Hook -
+The useReducer Hook is similar to the useState Hook.
+If you find yourself keeping track of multiple pieces of state that rely on complex logic, useReducer may be useful.
+
+const [score, dispatch] = useReducer(reducer, initialScore);
+
+#React useCallback Hook -
+The useCallback Hook is used to memoize a callback function.
+Memoizing a function means caching the result of a function so that it does not need to be recalculated.
+The useCallback function only re-executes when one of its dependencies changes value.
+This allows us to isolate resource intensive functions so that they will not automatically run on every render.
+
+The useCallback and useMemo Hooks are similar:
+useMemo returns a memoized value.
+useCallback returns a memoized function
+
+You will notice that all three components (Parent, Button 1 and Button 2) re-render each time you click the buttons.
+This can be avoided by using the useCallback hook.
+By using the useCallback hook, we can memoize the functions and only recreate them when their dependencies change.
+When clicking Button 1, only Parent and Button 1 should re-render, and when clicking Button 2, only Parent and Button 2 should re-render:\
+
+#React useMemo Hook - 
+Think of memoization as caching a value so that it does not need to be recalculated.
+The useMemo Hook only runs when one of its dependencies update.
+
+The useMemo and useCallback Hooks are similar:
+useMemo returns a memoized value.
+useCallback returns a memoized function.
+
+The useMemo Hook can be used to keep expensive, resource intensive functions from needlessly running.

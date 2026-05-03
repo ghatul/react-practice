@@ -567,3 +567,897 @@ const reverseArray = (arr) => {
 return arr;
 }
 reverseArray(list)
+
+--------------------------------------------------------------
+document.getElementById("demo").style.fontSize = "35px";
+JavaScript keywords are case-sensitive.
+
+JavaScript does not interpret LET or Let as the keyword let.
+Variables are labels for data values.
+
+Variables are containers for storing data.
+
+let and const have block scope.
+
+let and const can not be redeclared.
+
+let and const must be declared before use.
+
+let and const does not bind to this.
+
+let and const are not hoisted.
+Variables defined with const cannot be Redeclared
+
+Variables defined with const cannot be Reassigned
+
+Variables defined with const have Block Scope
+
+Always declare a variable with const when you know that the value should not be changed.
+
+Use const when you declare:
+
+A new Array
+A new Object
+A new Function
+A new RegExp
+It does not define a constant value. It defines a constant reference to a value.
+
+
+#JavaScript has 8 Datatypes
+A JavaScript variable can hold 8 types of data:
+
+Type	Description
+String	A text of characters enclosed in quotes
+Number	A number representing a mathematical value
+Bigint	A number representing a large integer
+Boolean	A data type representing true or false
+Object	A collection of key-value pairs of data
+Undefined	A primitive variable with no assigned value
+Null	A primitive value representing object absence
+Symbol	A unique and primitive identifier
+
+break and continue are the only JavaScript statements that can "jump out of" a code block.
+A code block is a block of code between { and }.
+
+Without a label reference, break can only jump out of a loop or a switch.
+
+With a label reference, break can jump out of any code block:
+The continue statement skips the current iteration in a loop.
+
+let text = "";
+
+loop1: for (let j = 1; j < 5; j++) {
+  loop2: for (let i = 1; i < 5; i++) {
+    if (i === 3) { continue loop1; }
+    text += i;
+   }
+}
+
+Parameters are the names listed in the function definition
+Arguments are the values received by the function
+A function expression is a function stored in a variable
+
+The most useful functions work like this:
+
+Parameters - some values are sent to the function
+Arguments - some values are received by the function
+Function Code - some work is done inside the function
+Return Output - some value is returned from the function
+Arguments are the real values passed to, and received by the function.
+
+JavaScript function definitions do not specify data types for parameters.
+JavaScript functions do not perform type checking on the arguments.
+JavaScript functions do not check the number of arguments received.
+
+x = findMax(1, 123, 500, 115, 44, 88);
+
+function findMax() {
+  let max = -Infinity;
+  for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i] > max) {
+      max = arguments[i];
+    }
+  }
+  return max;
+}
+If a function is called with too many arguments (more than declared), these arguments can be reached using the arguments object.
+The rest parameter (...) allows a function to treat an indefinite number of arguments as an array:
+
+function sum(...args) {
+  let sum = 0;
+  for (let arg of args) sum += arg;
+  return sum;
+}
+
+let x = sum(4, 9, 16, 25, 29, 100, 66, 77);
+
+Arguments are Passed by Value
+The parameters, in a function call, are the function's arguments.
+
+JavaScript arguments are passed by value: The function only gets to know the values, not the argument's locations.
+
+If a function changes an argument's value, it does not change the parameter's original value.
+
+Changes to arguments are not visible (reflected) outside the function.
+
+Objects are Passed by Reference
+In JavaScript, object references are values.
+Because of this, objects will behave like they are passed by reference:
+If a function changes an object property, it changes the original value.
+Changes to object properties are visible (reflected) outside the function.
+
+A function expression is a function stored in a variable
+
+Function expressions are commonly used to create anonymous functions.
+Functions stored in variables do not need names.
+
+But, function expressions can also be a named:
+const add = function add(a, b) {return a + b;};
+
+A function declaration (or simply a function) is defined using:
+
+The function keyword
+A function name
+Parameters in parentheses
+A code block brackets
+function add(a, b) {return a + b;}
+
+A function expression is defined using:
+The function keyword
+Parameters in parentheses
+A code block brackets
+const add = function(a, b) {return a + b;};
+
+
+Hoisting
+Function declarations can be called before they are defined.
+Function expressions can not be called before they are defined.
+Function declarations are "hoisted" to the top of their scope. This means you can call a function before it is defined in the code:
+
+let sum = add(2, 3); // Will work
+function add(a, b) {return a + b;}
+
+
+Function expressions are not hoisted in the same way as function declarations.
+
+They are created when the execution reaches their definition, and cannot be called before that point:
+let sum = add(2, 3); // ⛔ Will generate error
+const add = function (a, b) {return a + b;};
+
+Key Differences
+Syntax:
+Function declarations require a name. Function expressions can be anonymous.
+Hoisting:
+Function declarations are hoisted. Function expressions are not.
+Flexibility:
+Function declarations offer more flexibility in how and where they are used.
+
+Use function declarations for general-purpose functions
+Use function expressions when assigning functions to variables
+Use function expressions in callbacks and event handlers
+
+
+#Arrow Functions and the this Keyword
+Arrow functions do not have their own this value.
+
+They inherit this from the surrounding code.
+
+Example
+const person = {
+  name: "John",
+  greet: function() {
+    return this.name;
+  }
+};
+
+const person = {
+  name: "John",
+  greet: () => {
+    return this.name;
+  }
+};
+In this case, this does not refer to the person object.
+
+When Not to Use Arrow Functions
+As object methods
+When you need your own this
+When using function declarations
+Arrow functions do not bind this.
+
+Object Definitions
+Using an Object Literal
+Using the new Keyword
+Using an Object Constructor
+Using Object.assign()
+Using Object.create()
+Using Object.fromEntries()
+
+
+Object Iterations
+Object.entries(object)
+Object.keys(object)
+Object.values(object)
+Object.groupBy(object, callback)
+
+Objects are variables that can store both values and functions.
+Values are stored as key:value pairs called properties.
+Functions are stored as key:function() pairs called methods.
+In an object method, this refers to the object.
+In JavaScript, almost "everything" is an object:
+
+Objects are objects
+Maths are objects
+Dates are objects
+Arrays are objects
+Maps are objects
+Sets are objects
+RegExp are Objects
+Errors are Objects
+All JavaScript values, except primitives, are objects.
+
+A primitive data type is data type that can only store a single primitive value.
+JavaScript defines 7 types of primitive data types:
+
+
+Type	Example value
+string	"Hello"
+number	3.14
+boolean	true
+bigint	12345678901234
+null	null
+undefined	undefined
+symbol	symbol
+
+const person = {
+  firstName: "John",
+  lastName: "Doe"
+};
+
+let result = ("firstName" in person);
+
+
+this in a Function
+In a regular function, this also refers to the global object.
+
+Example
+function myFunction() {
+  return this;
+}
+
+document.getElementById("demo").innerHTML = myFunction();
+
+
+Object Constructor Functions
+Sometimes we need to create many objects of the same type.
+To create an object type we use an object constructor function.
+It is considered good practice to name constructor functions with an upper-case first letter.
+
+Object Constructor Functions
+Sometimes we need to create many objects of the same type.
+
+To create an object type we use an object constructor function.
+
+It is considered good practice to name constructor functions with an upper-case first letter.
+
+Object Type Person
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+const mySelf = new Person("Johnny", "Rally", 22, "green");
+
+In the constructor function, this has no value.
+The value of this will become the new object when a new object is created.
+
+Adding a property to a created object is easy:
+
+Example
+myFather.nationality = "English";
+
+The new property will be added to myFather. Not to any other Person Objects.
+
+You can NOT add a new property to an object constructor:
+Person.nationality = "English";
+
+To add a new property, you must add it to the constructor function prototype:
+
+// Constructor function for Person Objects
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+
+// Create 2 Person Objects
+const myFather = new Person("John", "Doe", 50, "blue");
+const myMother = new Person("Sally", "Rally", 48, "green");
+
+// Add a new Property
+Person.prototype.nationality = "English";
+
+// Display new Property
+document.getElementById("demo").innerHTML =
+"The nationality of my father is " + myFather.nationality; 
+
+Constructor Function Methods
+A constructor function can also have methods:
+
+Constructor Function Methods
+A constructor function can also have methods:
+
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+  this.fullName = function() {
+    return this.firstName + " " + this.lastName;
+  };
+}
+
+Adding a Method to an Object
+Adding a method to a created object is easy:
+
+myMother.changeName = function (name) {
+  this.lastName = name;
+}
+
+The new method will be added to myMother. Not to any other Person Objects.
+
+Adding a Method to a Constructor
+You cannot add a new method to an object constructor function.
+
+This code will produce a TypeError:
+
+Adding a new method to a constructor must be done to the constructor function prototype:
+
+Example
+Person.prototype.changeName = function (name) {
+  this.lastName = name;
+}
+
+myMother.changeName("Doe");
+
+Built-in JavaScript Constructors
+JavaScript has built-in constructors for all native objects:
+
+new Object()   // A new Object object
+new Array()    // A new Array object
+new Map()      // A new Map object
+new Set()      // A new Set object
+new Date()     // A new Date object
+new RegExp()   // A new RegExp object
+new Function() // A new Function object
+
+Use object literals {} instead of new Object().
+
+Use array literals [] instead of new Array().
+
+Use pattern literals /()/ instead of new RegExp().
+
+Use function expressions () {} instead of new Function().
+
+Scope = Visibility
+Scope determines the accessibility (visibility) of variables.
+
+JavaScript variables have 3 types of scope:
+
+Global scope
+Function scope
+Block scope
+
+Global Scope
+Variables declared Globally (outside any block or function) have Global Scope.
+Global variables can be accessed from anywhere in a JavaScript program.
+Variables declared with var, let and const are quite similar when declared outside a block.
+
+All scripts and functions in the same web page can access a variable with global scope.
+
+Function Scope
+Each JavaScript function have their own scope.
+Variables defined inside a function are not accessible (visible) from outside the function.
+Variables declared with var, let and const are quite similar when declared inside a function.
+Variables declared within a JavaScript function, are LOCAL to the function:
+
+Local variables are created when a function starts
+Local variables are deleted when the function is completed
+Arguments (parameters) work as local variables inside functions
+
+Variables declared with let and const inside a code block are "block-scoped," meaning they are only accessible within that block.
+Code blocks allows for multiple statements to be treated as a single unit.
+
+This helps prevent unintended variable overwrites and promotes better code organization:
+
+Encapsulation
+Variables inside the block are only available in the block.
+This prevents "polluting" the global scope, keeps the code clean, and reduces the risk of name collisions.
+
+#JavaScript Hoisting -
+
+Hoisting is JavaScript's default behavior of moving declarations to the top.
+
+The let and const Keywords
+Variables defined with let and const are hoisted to the top of the block, but not initialized.
+Meaning: The block of code is aware of the variable, but it cannot be used until it has been declared.
+Using a let variable before it is declared will result in a ReferenceError.
+The variable is in a "temporal dead zone" from the start of the block until it is declared:
+
+JavaScript only hoists declarations, not initializations.
+
+The "use strict" directive was new in ECMAScript version 5.
+It defines that JavaScript code should be executed in "strict mode".
+
+
+Why Strict Mode?
+Strict mode makes it easier to write "secure" JavaScript.
+Strict mode changes previously accepted "bad syntax" into real errors.
+As an example, in normal JavaScript, mistyping a variable name creates a new global variable. In strict mode, this will throw an error, making it impossible to accidentally create a global variable.
+In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.
+In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
+
+
+The this keyword in functions behaves differently in strict mode.
+
+The this keyword refers to the object that called the function.
+
+If the object is not specified, functions in strict mode will return undefined and functions in normal mode will return the global object (window):
+
+"use strict";
+function myFunction() {
+  alert(this); // will alert "undefined"
+}
+myFunction();
+
+Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays.
+
+Array Elements Can Be Objects
+JavaScript variables can be objects. Arrays are special kinds of objects.
+
+Because of this, you can have variables of different types in the same Array.
+
+You can have objects in an Array. You can have functions in an Array. You can have arrays in an Array:
+
+myArray[0] = Date.now;
+myArray[1] = myFunction;
+myArray[2] = myCars;
+
+WARNING !
+Adding elements with high indexes can create undefined "holes" in an array:
+Many programming languages support arrays with named indexes.
+Arrays with named indexes are called associative arrays (or hashes).
+JavaScript does not support arrays with named indexes.
+
+In JavaScript, arrays use numbered indexes.  
+In JavaScript, objects use named indexes.
+Arrays are a special kind of objects, with numbered indexes.
+
+The pop() method removes the last element from an array:
+The shift() method removes the first array element and "shifts" all other elements to a lower index.
+The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements:
+The unshift() method returns the new array length:
+
+Array.isArray(fruits);
+
+ES2019 added the Array flatMap() method to JavaScript.
+
+The flatMap() method first maps all elements of an array and then creates a new array by flattening the array.
+
+The splice() method can be used to add new items to an array:
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi");
+
+added the toSorted() method as a safe way to sort an array without altering the original array.
+added the toReversed() method as a safe way to reverse an array without altering the original array.
+
+Sorting an Array in Random Order
+const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(){return 0.5 - Math.random()});
+
+Example (Find Min)
+function myArrayMin(arr) {
+  let len = arr.length;
+  let min = Infinity;
+  while (len--) {
+    if (arr[len] < min) {
+      min = arr[len];
+    }
+  }
+  return min;
+}
+function myArrayMax(arr) {
+  let len = arr.length;
+  let max = -Infinity;
+  while (len--) {
+    if (arr[len] > max) {
+      max = arr[len];
+    }
+  }
+  return max;
+}
+
+Comparing string properties is a little more complex:
+
+Example
+cars.sort(function(a, b){
+  let x = a.type.toLowerCase();
+  let y = b.type.toLowerCase();
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+});
+
+const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduce(myFunction, 100);
+
+function myFunction(total, value) {
+  return total + value;
+}
+
+const numbers = [45, 4, 9, 16, 25];
+let someOver18 = numbers.some(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+
+JavaScript Array.from()
+The Array.from() method returns an Array object from:
+
+Any iterable object
+
+Any object with a length property
+
+Example
+Create an Array from a String:
+
+let text = "ABCDEFG";
+Array.from(text);
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const keys = fruits.keys();
+
+for (let x of keys) {
+  text += x + "<br>";
+}
+
+Array with() method as a safe way to update elements in an array without altering the original array.
+
+Example
+const months = ["Januar", "Februar", "Mar", "April"];
+const myMonths = months.with(2, "March");
+
+flatMap()	Maps all array elements and creates a new flat array
+flat()	Concatenates sub-array elements
+
+You can create a JavaScript Set by:
+
+Passing an array to new Set()
+Create an empty set and use add() to add values
+You can create a JavaScript Set by:
+
+Passing an array to new Set()
+Create an empty set and use add() to add values
+
+The entries() method is supposed to return a [key,value] pair from an object.
+
+A Set has no keys, so the entries() method returns [value,value].
+
+This makes Sets compatible with Maps.
+
+The WeakSet Object
+A JavaScript WeakSet is a collection of values where the values must be objects.
+A WeakSet holds weak references to its values.
+
+// Create a WeakSet
+let mySet = new WeakSet();
+
+// Create an Object
+let myObj = {fname:"John", lname:"Doe"};
+
+// Add the Object
+mySet.add(myObj);
+
+// Delete the Object
+mySet.delete(myObj);
+
+// Do I have myObj in the mySet?
+let answer = mySet.has(myObj);
+
+
+Garbage Collection
+JavaScript employs a memory management mechanism known as Garbage Collection.
+
+The primary functions are:
+
+Ensuring efficient use of memory resources
+Reclaim memory occupied by variables that are no longer in use
+Preventing memory leaks
+
+Weak References
+Unlike a regular Set, a WeakSet does not prevent its values from being garbage collected.
+If a value (an object) has no references in a program, it becomes eligible for garbage collection.
+When the value is garbage collected, its is removed from the WeakSet.
+
+// Create a WeakSet
+let mySet = new WeakSet();
+
+// Create an Object
+let myObj = {fname:"John", lname:"Doe"};
+
+// Add the Object
+mySet.add(myObj);
+
+// Remove the Object from memory
+myObj = null;
+
+// Now myObj in mySet will be garbage collected
+
+
+Values Must Be Objects
+Primitive values cannot be values in a WeakSet.
+
+The values must be objects.
+
+This restriction is tied to the garbage collection mechanism; primitives are not garbage collected in the same way as objects.
+
+
+A WeakSet is similar to a Set, but it only stores objects, and holds them weakly. If there are no other references to an object, it gets garbage collected automatically.
+
+This makes it handy for tracking objects without storing extra data (like counts).
+
+Automatic Cleanup
+If you remove all references to a visitor object:
+
+Not Iterable
+WeakSets are not enumerable.
+
+You cannot iterate over the values with for loops, forEach(), or values().
+
+You cannot access the size. WeakSets have no size property.
+
+Limited Methods
+A WeakSet is minimal, memory-safe, and purpose-built for tracking objects privately and efficiently.
+
+WeakSet provides a limited set of methods:
+
+
+new WeakSet()	Creates a new WeakSet object
+add(object)	Adds an Object to a WeakSet
+delete(object)	Removes a WeakSet object
+has(object)	Returns true if an object exists in a WeakSet
+WeakSet does not have:
+
+A size property
+A spread operator (...)
+A clear() method
+Any logic methods (union, difference, intersection)
+Any iteration methods (forEach, keys, values, entries)
+The above is by design: Objects may disappear in garbage collection, it makes no sense to iterate over or count them.
+
+
+The Map Object
+A JavaScript Map is an object that can store collections of key-value pairs, similar to a dictionary in other programming languages.
+Maps differ from standard objects in that keys can be of any data type.
+
+Maps are similar to both Objects (unique key/value collection) and Arrays (ordered values collection).
+
+But if you look close, Maps are most similar to Objects.
+// Create an empty Map
+const fruits = new Map();
+
+// Set Map Values
+fruits.set("apples", 500);
+// Create a Map
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+fruits.get("apples");
+fruits.size;
+fruits.delete("apples");
+fruits.clear();
+fruits.has("apples");
+// List all entries
+let text = "";
+fruits.forEach (function(value, key) {
+  text += key + ' = ' + value;
+})
+
+// List all entries
+let text = "";
+for (const x of fruits.entries()) {
+  text += x;
+}
+
+Diffruits.clear();ferences between JavaScript Objects and Maps:
+Object	Map
+Not directly iterable	Directly iterable
+Do not have a size property	Have a size property
+Keys must be Strings (or Symbols)	Keys can be any datatype
+Keys are not well ordered	Keys are ordered by insertion
+Have default keys	Do not have default keys
+
+// Create an Array
+const fruits = [
+  {name:"apples", quantity:300},
+  {name:"bananas", quantity:500},
+  {name:"oranges", quantity:200},
+  {name:"kiwi", quantity:150}
+];
+
+// Callback function to Group Elements
+function myCallback({ quantity }) {
+  return quantity > 200 ? "ok" : "low";
+}
+
+// Group by Quantity
+const result = Map.groupBy(fruits, myCallback);
+Object.groupBy() vs Map.groupBy()
+The difference between Object.groupBy() and Map.groupBy() is:
+
+Object.groupBy() groups elements into a JavaScript object.
+
+Map.groupBy() groups elements into a Map object.
+
+The WeakMap Object
+A JavaScript WeakMap is a collection of key/value pairs where the keys must be objects.
+A WeakMap holds weak references to its keys.
+// Create a WeakMap
+let myMap = new WeakMap();
+// Create an Object
+let myObj = {fname:"John", lname:"Doe"};
+// Set a WeakMap value
+myMap.set(myObj, "player");
+// Get the WeakMap value
+let type = myMap.get(myObj);
+
+
+Garbage Collection
+JavaScript employs a memory management mechanism known as Garbage Collection.
+
+The primary functions are:
+
+Ensuring efficient use of memory resources
+Reclaim memory occupied by variables that are no longer in use
+Preventing memory leaks
+Weak References
+Unlike a regular Map, a WeakMap does not prevent its keys from being garbage collected.
+
+If a key (an object) has no references to it in a program, it becomes eligible for garbage collection.
+When the key is garbage collected, its key-value pair is removed from the WeakMap.
+
+let myMap = new WeakMap();
+let myObj = {fname:"John", lname:"Doe"};
+
+myMap.set(myObj, "secret");
+myObj = null;
+// now myObj (and its values) in myMap can be garbage collected
+A WeakMap does not allow iteration.
+Outside code can not "discover" what objects are stored inside a WeakMap.
+Privacy
+WeakMap was intentionally designed for privacy: you can set, get, has, and delete using an object key, but not inspect what is inside.
+
+#JavaScript Data Types -
+A JavaScript variable can hold 8 types of data.
+
+7 Primitive Data Types and 1 Object Data Type.
+The Object data type can hold many different object types.
+
+Number	A number representing a numeric value
+Bigint	A number representing a large integer
+String	A text of characters enclosed in quotes
+Boolean	A data type representing true or false
+Undefined	A variable with no assigned value
+Null	A value representing object absence
+Symbol	A unique primitive identifier
+Object	A collection of key-value pairs of data
+
+When adding a number and a string, JavaScript will treat the number as a string.
+
+JavaScript Types are Dynamic
+JavaScript has dynamic types. This means that the same variable can be used to hold different data types:
+
+Example
+let x;       // Now x is undefined
+x = 5;       // Now x is a Number
+x = "John";  // Now x is a String
+
+Object	Description
+Array	Array of values accessed by a numerical index
+Map	Array of key-value pairs where the keys can be of any data type
+Set	Array of values where each value can only appear once
+WeakMap	A type of Map with weak references to the stored objects.
+WeakSet	A type of Set with weak references to the stored objects.
+Math	An object that provides math constants and functions like PI and random()
+Date	Object for working with dates and times
+RegExp	Object for working with regular expressions
+Error	Object represents error conditions during program execution
+JSON	Object with methods for parsing values between JSON and objects
+Promise	Object representing the completion or failure of an asynchronous operation
+Int8Array	Array for storing fixed-size 8-bits integer values
+Int16Array	Array for storing fixed-size 16-bits integer values
+Int32Array	Array for storing fixed-size 32-bits integer values
+Float16Array	Array for storing fixed-size 16-bits floating-point values
+Float32Array	Array for storing fixed-size 32-bits floating-point values
+Float64Array	Array for storing fixed-size 64-bits floating-point values
+BigInt64Array	Array for storing fixed-size 64-bits big integer values
+
+In JavaScript, null is a primitive value.
+However, typeof returns object.
+This is a well-known bug in JavaScript and has historical reasons.
+
+Complex Data Types
+A complex data type can store multiple values and/or different data types together.
+
+JavaScript has one complex data type:
+
+object
+All other complex types like arrays, functions, sets, and maps are just different types of objects.
+
+The typeof operator returns only two types:
+
+object
+function
+
+
+Null
+In JavaScript null is "nothing". It is supposed to be something that doesn't exist.
+
+Unfortunately, in JavaScript, the data type of null is an object.
+
+You can empty an object by setting it to null:
+
+typeof undefined      // undefined
+typeof null           // object
+
+null === undefined    // false
+null == undefined     // true
+
+The data type of NaN (Not a Number) is number !
+
+The Finally Block (Optional)
+The finally block executes after the try and catch blocks, whether an error occurred or not.
+
+It is commonly used for cleanup tasks (e.g., closing files, stopping loaders, etc.).
+
+Syntax
+try {
+  // Code that may cause an error
+} catch (error) {
+  // Code to handle the error
+} finally {
+  // Code that always runs, no matter what
+}
+
+const x = document.getElementById("main");
+const y = x.getElementsByTagName("p");
+const x = document.querySelectorAll("p.intro");
+document.getElementById("myImage").src = "landscape.jpg";
+document.getElementById('id1').style.color = 'red'
+<button onclick="displayDate()">Time is?</button>
+const btn = document.getElementById("myBtn");
+
+// Add EventListener to btn
+btn.addEventListener("click", function () {
+  document.getElementById("demo").innerHTML = Date();
+});
+
+const box = document.getElementById("box");
+
+// Let box listen for mouseover
+box.addEventListener("mouseover", function () {
+  box.innerHTML = "Mouse is over me!";
+});
+
+// Let box listen for mouseout
+box.addEventListener("mouseout", function () {
+  box.innerHTML = "Move is out!";
+});
+document.getElementById("myBtn").addEventListener("click", displayDate);
+document.getElementById("myDiv").addEventListener("click", myFunction, true);

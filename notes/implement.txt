@@ -31,3 +31,5 @@ implement - Object.groupBy(object, callback)
 implement nav - with float and felx - both vertical and horizontal
 implement - https://www.w3schools.com/css/css_dropdowns.asp
 implement tooltip arrao - https://www.w3schools.com/css/css_tooltip_arrows.asp
+
+Note: Often, HOC's can be replaced with React Hooks, but HOC's are still useful for certain cross-cutting concerns like authentication or data fetching patterns.

@@ -1,4 +1,8 @@
 
+Git, Git Hub, AWS, Docker, Kubernetes, Redis,
+ APache, kafka, Linux, Nginx, Nodejs, Spring Boot, Mongodb, PostgreSQL
+
+
 1. Data Types & typeof JavaScript data types
 2. var/let/const + Scope
 3. Type Coercion & == vs ===
@@ -35,3 +39,4 @@
 43. Security attacks
 44. Design patterns
 45. OOPS concepts
+46. rest operator react
