@@ -1,0 +1,190 @@
+1. Find the maximum element in an array.
+2. Count the number of even and odd numbers in a list.
+3. Reverse a given string.
+4. Check if a number is prime.
+5. Print the Fibonacci sequence up to N terms.
+6. Find the second largest element in an array.
+7. Check if a string is a palindrome.
+8. Sort an array using bubble sort.
+9. Find the sum of digits of a number.
+10. Calculate the factorial of a number.
+11. Merge two sorted arrays into one.
+12. Count the frequency of elements in an array.
+13. Find the missing number in a range from 1 to N.
+14. Check if two strings are anagrams.
+15. Remove duplicate elements from an array.
+16. Find the largest sum subarray (Kadane's Algorithm).86
+17. Check if a number is an Armstrong number.
+18. Rotate an array to the left by K steps.
+19. Find the intersection of two arrays.
+20. Move all zeros to the end of an array.
+21. Implement binary search on a sorted array.
+22. Check if a number is a perfect square.
+23. Count vowels and consonants in a string.
+24. Find the GCD of two numbers.
+25. Convert a binary number to decimal.
+26. Find the first non-repeating character in a string.
+28. Implement a queue using two stacks.
+29. Check if brackets are balanced in an expression
+
+----------------------------------------------------------------
+
+
+Linked Lists (8 problems)
+Middle of Linked List
+Linked List Cycle
+Reverse Linked List
+Remove Linked List Elements
+Reverse Linked List II
+Palindrome Linked List
+Merge Two Sorted Lists
+Linked
+
+
+Stacks & Queues (10 problems)
+Min Stack
+Valid Parentheses
+Evaluate Reverse Polish Notation
+Stack Sorting
+Implement Stack using Queues
+Time Needed to Buy Tickets
+Reverse the First K Elements of a Queue
+
+
+Task Scheduler
+Letter Case Permutation
+Minimum Size Subarray Sum
+Arrays & Strings (12 problems)
+Contains Duplicate
+Missing Number
+Numbers Disappeared Array
+Two Sum
+How Many Numbers Are Smaller Than the Current Number
+Minimum Time Visiting All Points
+Spiral Matrix
+Number of Islands
+Best Time to Buy and Sell Stock
+Squares of a Sorted Array
+3Sum
+Longest Mountain in Array
+
+
+DP & Backtracking (10 problems)
+Coin Change
+Climbing Stairs
+Maximum Subarray
+Counting Bits
+Range Sum Query -Immutable
+Subsets
+Combinations
+Permutations
+Cheapest Flights Within K Stops
+Minimum Absolute Differenc
+
+
+Heaps & Bit Manipulation(8 Qs)
+Single Number (Bit Manipulation)
+Kth Smallest Element in a BST
+Kth Largest Element in an Array
+K Closest Points to Origin
+Top K Frequent Elements
+Delete Node in a BSTStacks & Queues (10 problems)
+Min Stack
+Valid Parentheses
+Evaluate Reverse Polish Notation
+Stack Sorting
+Implement Stack using Queues
+Time Needed to Buy Tickets
+Reverse the First K Elements of a Queue
+Task Scheduler
+Letter Case Permutation
+Minimum Size Subarray Sum
+Balance a Binary Search Tree
+How Many Numbers Are Smaller Than the Current Number (Greedy)
+
+
+
+Trees & Graphs (18 problems)
+Average of Levels
+Minimum Depth
+Min/Max Value
+Level Order Traversal
+Same Tree
+Path Sum
+Diameter of a Binary Tree
+Invert Binary Tree
+Lowest Common Ancestor
+Binary Search Tree
+Insert in Binary Search Tree
+Convert Sorted Array to Binary Search Tree
+Two Sum IV - Input is a BST
+Lowest Common Ancestor
+
+-----------------------------
+
+
+
+
+Sliding Window
+→ Expand & shrink window
+
+efficiently
+
+Two Pointers
+→ Move pointers to narrow search
+
+Prefix Sum
+→ Precompute sums for fast queries
+
+Cyclic Sort
+→ Place numbers at correct indices
+
+Fast & Slow Pointers
+→ Different speeds, one goal
+
+Merge Intervals
+→ Sort and merge overlaps
+
+Binary Search
+→ Cut search space in half
+
+Binary Search on Answer
+→ Search the solution space
+
+Stack
+→ Process elements in LIFO order
+
+Monotonic Stac
+→ Maintain ordered stack
+
+Top K Elements (Heap)
+→ Track best K efficiently
+
+Bit Manipulation
+→ Solve using bit-level tricks
+
+
+Backtracking
+→ Try, revert, repeat
+
+Greedy
+→ Choose best at each step
+
+Union-Find (DSU)
+→ Connect & group components
+
+Dynamic Programming
+→ Optimize overlapping subproblems
+
+
+BFS
+→ Level-by-level traversal
+
+DFS
+→ Go deep before backtracking
+
+Trie
+→ Store & search prefixes fast
+
+Graph Algorithms
+→ Model relationships & dependencies

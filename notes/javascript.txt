@@ -1461,3 +1461,251 @@ box.addEventListener("mouseout", function () {
 });
 document.getElementById("myBtn").addEventListener("click", displayDate);
 document.getElementById("myDiv").addEventListener("click", myFunction, true);
+
+------------------------------------------------------------------------------
+
+// Function Declaration
+function myFunction(x, y) {
+  return x * y;
+}
+
+// Function Expression (Named)
+const myFunction = function name(x, y) {
+  return x * y;
+};
+
+// Function Expression (Anonymous)
+const myFunction = function (x, y) {
+  return x * y;
+};
+
+// Arrow Function
+const myFunction = (x, y) => x * y;
+
+// Function Constructor
+const myFunction = new Function("x", "y", "return x * y");
+
+// Object Method
+const obj = {
+  myFunction(x, y) {
+    return x * y;
+  },
+};
+
+Hoisting
+Function declarations are hoisted to the top of their scope.
+
+Function expressions are not hoisted in the same way.
+
+Function declarations can be called before they are defined.
+
+Function expressions can not be called before they are defined.
+
+The typeof operator in JavaScript returns function for functions.
+
+A JavaScript callback is a function passed as an argument to another function, which is then executed (or "called back") at a later point in time to complete a specific task.
+
+A callback function is a function passed as an argument into another function.
+
+A callback function is intended to be executed later.
+
+Later is typically when a specific event occurs or an asynchronous operation completes.
+
+Array methods like map(), filter(), and forEach() use synchronous callbacks.
+Event Handling
+Callbacks are often used in JavaScript, especially in event handling.
+
+User interactions, such as button clicks or key presses, can be handled by providing a callback function to an event listener:
+
+document.getElementById("myButton").addEventListener("click", displayDate);
+
+setTimeout(myFunction, 3000);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "I love You !!";
+}
+
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+
+myCalculator(5, 5, myDisplayer);
+
+What is this?
+When the this keyword is used in a function, it refers to an Object.
+Which Object, is not decided when the function is written.
+The value of this is decided when the function is called
+
+What is this?
+When the this keyword is used in a function, it refers to an Object.
+Which Object, is not decided when the function is written.
+The value of this is decided when the function is called
+
+this refers to the object that owns the method.
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+person.fullName();
+
+this in a Function (Default)
+By default, when this is used in a regular function, this refers to the global object.
+
+In a browser window, the global object is [object Window]:
+
+Example
+function myFunction() {
+  return this;
+}
+
+this in a Function (Strict Mode)
+JavaScript strict mode does not allow default binding.
+
+In strict mode, this used inside a function is undefined.
+"use strict";
+function myFunction() {
+  return this;
+}
+
+When used outside a function, this always refers to the global object.
+
+The global object is the top-level object in a JavaScript environment:
+
+In browsers, it is window.
+In Node.js, it is global.
+In Web Workers, it is self.
+
+globalThis === window; // true in browsers
+globalThis === global; // true in Node.js
+
+this in Event Handlers
+In HTML event handlers, this refers to the HTML element that received the event:
+
+Examples
+<button onclick="this.innerHTML='Clicked!'">Click Me</button>
+
+
+this in Arrow Functions
+Arrow functions do not have their own this. They inherit this from the surrounding scope.
+In regular functions the this keyword represents the object that called the function, which could be the window, the document, a button or whatever.
+With arrow functions the this keyword always represents the object that defined the arrow function.
+
+The result shows that the first example returns two different objects (window and button), and the second example returns the window object twice, because the window object is the "owner" of the function
+
+// Regular Function:
+hello = function() {
+  document.getElementById("demo").innerHTML += this;
+}
+
+// The window object calls the function:
+window.addEventListener("load", hello);
+
+// A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);
+
+The window object represents the browser window or tab and acts as the global object in client-side JavaScript, while the document object represents the HTML 
+content loaded inside that window. The window is the parent object, containing properties like location, history, and window.document.
+
+Hierarchy: The window is the topmost object in the BOM (Browser Object Model) hierarchy. The document object is a property of the window object (window.document).
+
+Purpose: window is used for handling browser behaviors (alerts, resizing, navigation). document is used for manipulating HTML elements (getElementById, createElement).
+
+The call() method can be used to call a function with a specific this.
+
+The call() method lets an object use a method belonging to another object.
+You can use call() to borrow a method from another object:
+The call() method can accept arguments.
+
+Like with call() and apply(), the bind() method can borrow a method from another object.
+
+Unlike call() and apply(), the bind() method does not run the function immediately.
+
+Instead, it returns a new function that can be called later.
+
+The new function remembers the this value you chose.
+The bind() method creates a new function.
+const newFunction = functionName.bind(this, arg1, arg2, ...);
+
+The most common use of bind() is to make sure a function always uses the same this value.
+
+This will display undefined instead of person name:
+
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+
+setTimeout(person.display, 3000);
+
+
+When is IIFE Used?
+To create a private scope
+To run setup code once
+In older JavaScript code
+
+Everything inside an IIFE is private to that function.
+
+Variables inside an IIFE cannot be accessed from outside.
+
+const counter = (function () {
+  let value = 0;
+  return {
+    increment() { value++; },
+    get() { return value; }
+  };
+})();
+
+counter.increment();
+let x = counter.get();
+
+// Copies properties from a source object to a target object
+Object.assign(target, source)
+
+// Creates an object from an existing object
+Object.create(object)
+
+// Returns an array of the key/value pairs of an object
+Object.entries(object)
+
+// Creates an object from a list of keys/values
+Object.fromEntries()
+
+// Returns an array of the keys of an object
+Object.keys(object)
+
+// Returns an array of the property values of an object
+Object.values(object)
+
+// Groups object elements according to a function
+Object.groupBy(object, callback)
+
+function getData(callback) {
+  let ok = true;
+
+  if (ok) {
+    callback(null, "Data");
+  } else {
+    callback("Something failed", null);
+  }
+}
+
+getData(function(error, data) {
+  if (error) {
+    myDisplayer(error);
+    return;
+  }
+  myDisplayer(data);
+});

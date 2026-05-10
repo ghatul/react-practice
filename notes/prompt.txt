@@ -1,0 +1,3 @@
+Scenario-based questions in React and Node.js evaluate your 
+ability to solve real-world problems rather than just reciting 
+definitions. common scenarios might encounter in a full-stack JavaScript interview.
